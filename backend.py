@@ -5,34 +5,23 @@ try:
 
     cursor = sqliteConnection.cursor()
 
-
-    with open(r'E:\udemy-app\autobusy-backend\queries.sql', 'r') as queries:
+    with open(r'E:\autobusy\autobusy-backend\queries.sql', 'r') as queries:
         sql_script = queries.read()
-   
-   
-    cursor.executescript(sql_script)
-    
-    
+
+    # cursor.executescript(sql_script)
+
     print("Scripts successfully executed")
 
+    cursor.execute(
+        "")
 
+    rows = cursor.fetchall()
 
-
-    
-    
+    for row in rows:
+        print(row[0])
 
     sqliteConnection.commit()
 
-
-    # cursor.execute("SELECT * from route")
-
-    # rows = cursor.fetchall()
-
-    # for row in rows:
-    #     print(row[0])
-
-          
-    
     cursor.close()
 
 except sqlite3.Error as error:
@@ -41,6 +30,4 @@ finally:
     if (sqliteConnection):
         sqliteConnection.close()
         print("The SQLite connection is closed")
-
-
 

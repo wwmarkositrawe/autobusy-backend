@@ -1,8 +1,20 @@
 CREATE TABLE ROUTE (
 ROUTE_ID INTEGER PRIMARY KEY AUTOINCREMENT);
 
+CREATE TABLE STOP (
+STOP_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+STOP_NAME STRING,
+ROUTE_ID INTEGER,
+FOREIGN KEY (ROUTE_ID) REFERENCES ROUTE (ROUTE_ID));
+
+CREATE TABLE TIMETABLE (
+TIMETABLE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+TIME STRING,
+ROUTE_ID INTEGER,
+FOREIGN KEY (ROUTE_ID) REFERENCES ROUTE (ROUTE_ID));
+
 INSERT INTO ROUTE VALUES
-(1);
+(1),
 (2),
 (3),
 (4),
@@ -18,18 +30,6 @@ INSERT INTO ROUTE VALUES
 -- (14),
 -- (15);
 
-CREATE TABLE STOP (
-STOP_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-STOP_NAME STRING,
-ROUTE_ID INTEGER,
-FOREIGN KEY (ROUTE_ID) REFERENCES ROUTE (ROUTE_ID));
-
-CREATE TABLE TIMETABLE (
-TIMETABLE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-TIME STRING,
-ROUTE_ID INTEGER,
-FOREIGN KEY (ROUTE_ID) REFERENCES ROUTE (ROUTE_ID));
-
 INSERT INTO STOP VALUES
 (1,'Lidzbark Warmiński', 1),
 (2, 'Smolajny', 1),
@@ -38,14 +38,14 @@ INSERT INTO STOP VALUES
 (5, 'Lidzbark Warmiński', 2),
 (6, 'Smolajny', 2),
 (7, 'Dobre Miasto', 2),
-(8, 'Lidzbark Warmiński' 3),
+(8, 'Lidzbark Warmiński', 3),
 (9, 'Smolajny', 3),
 (10, 'Smolajny', 4),
 (11, 'Dobre Miasto', 4),
 (12, 'Smolajny', 5),
 (13, 'Olsztyn', 5),
 (14, 'Dobre Miasto', 6),
-(15, 'Olsztyn' 6);
+(15, 'Olsztyn', 6);
 
 INSERT INTO TIMETABLE VALUES
 (1, '8:00', 1),
@@ -72,25 +72,25 @@ INSERT INTO TIMETABLE VALUES
 (22, '12:30', 6),
 (23, '15:30', 6),
 (24, '19:30', 6);
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
--- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
+-- -- (, '', ),
